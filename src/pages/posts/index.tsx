@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import AllPosts from "@/components/posts/all-posts";
-import {DUMMY_POSTS} from "@/pages";
-const AllPostsPage = () => {
+import {getAllPosts} from "@/helpers/post-utils";
+const AllPostsPage = (props: any) => {
     return (
         <>
             <Head>
@@ -11,8 +11,19 @@ const AllPostsPage = () => {
                     content='A list of all programming-related tutorials and posts!'
                 />
             </Head>
-            <AllPosts posts={DUMMY_POSTS}/>
+            <AllPosts posts={props.posts}/>
         </>
     );
 }
+
+export const getStaticProps = () => {
+    const allPosts = getAllPosts();
+
+    return {
+        props: {
+            posts: allPosts
+        }
+    };
+}
+
 export default AllPostsPage;
