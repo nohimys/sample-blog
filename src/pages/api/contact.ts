@@ -1,6 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
+import {saveContactMessage} from "@/helpers/mongodb-connector";
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if(req.method === 'POST'){
         const { email, name, message } = req.body;
 
@@ -21,12 +22,11 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
             name,
             message,
         };
-
-        console.log(`Message Came: ${JSON.stringify(newMessage)}`);
+        const responseObject  = await saveContactMessage(newMessage)
 
         res
             .status(201)
-            .json(newMessage);
+            .json(responseObject);
     }
     else{
         res.status(400)
