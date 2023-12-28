@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import PostContent from '../../components/posts/post-detail/post-content';
-import {DUMMY_POSTS} from "@/pages";
+import {getPostData} from "@/helpers/post-utils";
 
 const PostDetailPage = (props:any) => {
     return (
@@ -15,14 +15,22 @@ const PostDetailPage = (props:any) => {
     );
 }
 
-export function getServerSideProps(){
+export const getStaticProps = (context: any) => {
+    const slug = context.params.slug;
+    const postDetails = getPostData(slug);
+
     return {
         props: {
-            post:{
-                ...DUMMY_POSTS[0],
-                content: '# This is a first post.'
-            }
-        }
+            post: postDetails
+        },
+        revalidate: 1800
+    };
+}
+
+export const getStaticPaths = () => {
+    return {
+        paths: [],
+        fallback: 'blocking'
     };
 }
 

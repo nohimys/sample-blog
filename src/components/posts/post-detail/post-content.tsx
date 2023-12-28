@@ -6,7 +6,7 @@ import classes from './post-content.module.css';
 const PostContent = (props:any) =>{
     const { post } = props;
 
-    const imagePath = `/images/posts/${post.slug}/${post.image}`;
+    const imagePath = `/images/posts/${post.image}`;
 
     return (
         <article className={classes.content}>
