@@ -7,8 +7,8 @@ export default function Home(props:any) {
   return (
     <>
       <Head>
-        <title>Sample Blog</title>
-        <meta name="description" content="Sample Blog" />
+        <title>Next Blog</title>
+        <meta name="description" content="Next Blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
