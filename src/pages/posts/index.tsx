@@ -1,8 +1,18 @@
-const Posts = () => {
+import Head from 'next/head';
+import AllPosts from "@/components/posts/all-posts";
+import {DUMMY_POSTS} from "@/pages";
+const AllPostsPage = () => {
     return (
         <>
-            <p>Posts</p>
+            <Head>
+                <title>All Posts</title>
+                <meta
+                    name='description'
+                    content='A list of all programming-related tutorials and posts!'
+                />
+            </Head>
+            <AllPosts posts={DUMMY_POSTS}/>
         </>
     );
 }
-export default Posts;
+export default AllPostsPage;
