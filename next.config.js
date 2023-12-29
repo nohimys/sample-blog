@@ -1,4 +1,6 @@
 const {PHASE_PRODUCTION_BUILD} = require('next/constants');
+const {CLUSTER_ADDRESS, MONGODB_USERNAME, MONGODB_PASSWORD} = require("./creds");
+
 
 /** @type {import('next').NextConfig} */
 const nextConfig = (phase) => {
@@ -15,9 +17,9 @@ const nextConfig = (phase) => {
             ],
         },
         env: {
-            cluster_address: '',
-            mongodb_username: '',
-            mongodb_password: ''
+            cluster_address: CLUSTER_ADDRESS,
+            mongodb_username: MONGODB_USERNAME,
+            mongodb_password: MONGODB_PASSWORD
         }
     };
 
