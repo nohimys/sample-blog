@@ -1,5 +1,5 @@
 export const SECRETS = {
-    CLUSTER_ADDRESS: process.env.cluster_address,
-    MONGODB_USERNAME: process.env.mongodb_username,
-    MONGODB_PASSWORD: process.env.mongodb_password
+    CLUSTER_ADDRESS: process.env.CLUSTER_ADDRESS,
+    MONGODB_USERNAME: process.env.MONGODB_USERNAME,
+    MONGODB_PASSWORD: process.env.MONGODB_PASSWORD
 }
